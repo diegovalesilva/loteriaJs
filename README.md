@@ -1,0 +1,1 @@
+Gerador de jogos de loteria (Lotofácil, MegaSena, Quina e Lotomania)
