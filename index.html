@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Agora ficou fácil gerar vários jogos de loteria da caixa!">
+  	<meta name="keywords" content="gerador de loteria,gerador de lotofácil, gerador de lotomania, loteria app, gerador de megasena, gerador de quina, loterias caixa economica federal" >
+ 	<meta name="author" content="Diego Vale">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gera Loteria</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" >
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="container-fluid">
+        
+        <div class="row justify-content-md-center">
+            <div class="col-md-6">
+                <h1 class="text-center">Gera Loteria</h1>
+
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                      <button style="color:#7D26CD" class="nav-link active" id="lotofacil-tab" data-bs-toggle="tab" data-bs-target="#lotofacil" type="button" role="tab" aria-controls="lotofacil" aria-selected="true">Lotofácil</button>
+                    </li>
+
+                    <li class="nav-item" role="presentation">
+                      <button style="color:#2E8B57" class="nav-link" id="megasena-tab" data-bs-toggle="tab" data-bs-target="#megasena" type="button" role="tab" aria-controls="megasena" aria-selected="false">Mega-Sena</button>
+                    </li>
+
+                    <li class="nav-item" role="presentation">
+                      <button style="color:#a438c5" class="nav-link" id="quina-tab" data-bs-toggle="tab" data-bs-target="#quina" type="button" role="tab" aria-controls="quina" aria-selected="false">Quina</button>
+                    </li>
+
+                    <li class="nav-item" role="presentation">
+                        <button style="color:#FF7F00" class="nav-link" id="lotomania-tab" data-bs-toggle="tab" data-bs-target="#lotomania" type="button" role="tab" aria-controls="lotomania" aria-selected="false">Lotomania</button>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="lotofacil" role="tabpanel" aria-labelledby="lotofacil-tab"><br/>
+                       
+                        <label for="qtd_n_lotofacil">Escolha quantos números quer gerar</label>
+                        <select class="form-select" id="qtd_n_lotofacil">
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                        </select>
+                      
+
+                        <button style="background-color:#7D26CD; color:white; border-color:#7D26CD;" type="button" class="btn btn-lg form-control" onclick="gerarLotofacil()">Gerar Lotofácil</button><br/><br/>
+
+                        <div class="alert alert-primary resultado" role="alert">
+                            <div id="result-lotofacil" class="text-center">Resultado aqui! Boa sorte!</div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="megasena" role="tabpanel" aria-labelledby="megasena-tab"><br/>
+
+                        <label for="qtd_n_megasena">Escolha quantos números quer gerar</label>
+                        <select class="form-select" id="qtd_n_megasena">
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                        </select>
+
+                        <button style="background-color:#2E8B57; color:white; border-color:#2E8B57;" type="button" class="btn btn-primary btn-lg form-control" onclick="gerarMegasena()">Gerar MegaSena</button><br/><br/>
+
+                        <div class="alert alert-primary resultado" role="alert">
+                            <div id="result-megasena" class="text-center">Resultado aqui! Boa sorte!</div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="quina" role="tabpanel" aria-labelledby="quina-tab"><br/>
+
+                        <label for="qtd_n_quina">Escolha quantos números quer gerar</label>
+                        <select class="form-select" id="qtd_n_quina">
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                        </select>
+
+                        <button style="background-color:#a438c5; color:white; border-color:#a438c5;" type="button" class="btn btn-primary btn-lg form-control" onclick="gerarQuina()">Gerar Quina</button><br/><br/>
+
+                        <div class="alert alert-primary resultado" role="alert">
+                            <div id="result-quina" class="text-center">Resultado aqui! Boa sorte!</div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="lotomania" role="tabpanel" aria-labelledby="lotomania-tab"><br/>
+
+                        <button style="background-color:#FF7F00; color:white; border-color:#FF7F00;" type="button" class="btn btn-primary btn-lg form-control" onclick="gerarLotomania()">Gerar Lotomania</button><br/><br/>
+
+                        <div class="alert alert-primary resultado" role="alert">
+                            <div id="result-lotomania" class="text-center">Resultado aqui! Boa sorte!</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>       
+    </div>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
